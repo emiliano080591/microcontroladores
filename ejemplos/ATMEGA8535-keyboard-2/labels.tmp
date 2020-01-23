@@ -1,0 +1,42 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.17</VERSION>
+ <DEVICE>ATmega8535</DEVICE>
+ <WORKING_DIR>C:\Documents and Settings\Laboratorio\Mis documentos</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Archivos de programa\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Archivos de programa\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8535def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>62</LINE></reset>
+  <init><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>72</LINE></init>
+  <begin><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>106</LINE></begin>
+  <antirrebotes><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>115</LINE></antirrebotes>
+  <delay><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>211</LINE></delay>
+  <deteccion><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>131</LINE></deteccion>
+  <colscan><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>136</LINE></colscan>
+  <invertir><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>229</LINE></invertir>
+  <filadetectada><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>162</LINE></filadetectada>
+  <filascan><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>164</LINE></filascan>
+  <col0><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>181</LINE></col0>
+  <col1><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>185</LINE></col1>
+  <col2><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>190</LINE></col2>
+  <col3><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>195</LINE></col3>
+  <fincol><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>200</LINE></fincol>
+  <desinvertir><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>239</LINE></desinvertir>
+  <loop0><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>217</LINE></loop0>
+  <loop1><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>218</LINE></loop1>
+  <loop2><FILE>C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm</FILE><LINE>219</LINE></loop2>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,27 @@
+.include "m8535def.inc"
+.def aux= r16
+.def dato= r17
+
+ser aux
+	out DDRB,  aux
+	out porta, aux
+
+ldi r20,$3f
+ldi r21,6
+ldi r22,$5b
+ldi r23,$4f
+ldi r24,$66
+ldi r25,$6d
+ldi r26,$7d
+ldi r27,$27
+ldi r28,$7f
+ldi r29,$6f
+
+otro: ldi zl,20
+	  in dato, pina
+	  andi dato,$0f
+	  add zl,dato
+	  ld dato,z
+	  out portb,dato
+	  rjmp otro
+

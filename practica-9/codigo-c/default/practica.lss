@@ -1,0 +1,314 @@
+
+practica.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000158  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000018  00800060  00000158  000001cc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .debug_aranges 00000020  00000000  00000000  000001e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000001b  00000000  00000000  00000204  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000002da  00000000  00000000  0000021f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000136  00000000  00000000  000004f9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000001ae  00000000  00000000  0000062f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000020  00000000  00000000  000007e0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000010e  00000000  00000000  00000800  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000180  00000000  00000000  0000090e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000078  00000000  00000000  00000a8e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	10 c0       	rjmp	.+32     	; 0x22 <__ctors_end>
+   2:	22 c0       	rjmp	.+68     	; 0x48 <__bad_interrupt>
+   4:	21 c0       	rjmp	.+66     	; 0x48 <__bad_interrupt>
+   6:	20 c0       	rjmp	.+64     	; 0x48 <__bad_interrupt>
+   8:	1f c0       	rjmp	.+62     	; 0x48 <__bad_interrupt>
+   a:	1e c0       	rjmp	.+60     	; 0x48 <__bad_interrupt>
+   c:	1d c0       	rjmp	.+58     	; 0x48 <__bad_interrupt>
+   e:	1c c0       	rjmp	.+56     	; 0x48 <__bad_interrupt>
+  10:	1b c0       	rjmp	.+54     	; 0x48 <__bad_interrupt>
+  12:	1a c0       	rjmp	.+52     	; 0x48 <__bad_interrupt>
+  14:	19 c0       	rjmp	.+50     	; 0x48 <__bad_interrupt>
+  16:	18 c0       	rjmp	.+48     	; 0x48 <__bad_interrupt>
+  18:	17 c0       	rjmp	.+46     	; 0x48 <__bad_interrupt>
+  1a:	16 c0       	rjmp	.+44     	; 0x48 <__bad_interrupt>
+  1c:	15 c0       	rjmp	.+42     	; 0x48 <__bad_interrupt>
+  1e:	14 c0       	rjmp	.+40     	; 0x48 <__bad_interrupt>
+  20:	13 c0       	rjmp	.+38     	; 0x48 <__bad_interrupt>
+
+00000022 <__ctors_end>:
+  22:	11 24       	eor	r1, r1
+  24:	1f be       	out	0x3f, r1	; 63
+  26:	cf e5       	ldi	r28, 0x5F	; 95
+  28:	d2 e0       	ldi	r29, 0x02	; 2
+  2a:	de bf       	out	0x3e, r29	; 62
+  2c:	cd bf       	out	0x3d, r28	; 61
+
+0000002e <__do_copy_data>:
+  2e:	10 e0       	ldi	r17, 0x00	; 0
+  30:	a0 e6       	ldi	r26, 0x60	; 96
+  32:	b0 e0       	ldi	r27, 0x00	; 0
+  34:	e8 e5       	ldi	r30, 0x58	; 88
+  36:	f1 e0       	ldi	r31, 0x01	; 1
+  38:	02 c0       	rjmp	.+4      	; 0x3e <.do_copy_data_start>
+
+0000003a <.do_copy_data_loop>:
+  3a:	05 90       	lpm	r0, Z+
+  3c:	0d 92       	st	X+, r0
+
+0000003e <.do_copy_data_start>:
+  3e:	a8 37       	cpi	r26, 0x78	; 120
+  40:	b1 07       	cpc	r27, r17
+  42:	d9 f7       	brne	.-10     	; 0x3a <.do_copy_data_loop>
+  44:	02 d0       	rcall	.+4      	; 0x4a <main>
+  46:	86 c0       	rjmp	.+268    	; 0x154 <_exit>
+
+00000048 <__bad_interrupt>:
+  48:	db cf       	rjmp	.-74     	; 0x0 <__vectors>
+
+0000004a <main>:
+#define F_CPU 4000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+#define DIG 1
+
+int main(void) {
+  4a:	af 92       	push	r10
+  4c:	bf 92       	push	r11
+  4e:	cf 92       	push	r12
+  50:	df 92       	push	r13
+  52:	ff 92       	push	r15
+  54:	0f 93       	push	r16
+  56:	1f 93       	push	r17
+  58:	df 93       	push	r29
+  5a:	cf 93       	push	r28
+  5c:	cd b7       	in	r28, 0x3d	; 61
+  5e:	de b7       	in	r29, 0x3e	; 62
+  60:	68 97       	sbiw	r28, 0x18	; 24
+  62:	0f b6       	in	r0, 0x3f	; 63
+  64:	f8 94       	cli
+  66:	de bf       	out	0x3e, r29	; 62
+  68:	0f be       	out	0x3f, r0	; 63
+  6a:	cd bf       	out	0x3d, r28	; 61
+
+  DDRA = 0xFF;
+  6c:	8f ef       	ldi	r24, 0xFF	; 255
+  6e:	8a bb       	out	0x1a, r24	; 26
+  DDRC = 0xFF;
+  70:	84 bb       	out	0x14, r24	; 20
+    8,
+    16,
+    32,
+    64,
+    128
+  };
+  72:	de 01       	movw	r26, r28
+  74:	11 96       	adiw	r26, 0x01	; 1
+  76:	e0 e7       	ldi	r30, 0x70	; 112
+  78:	f0 e0       	ldi	r31, 0x00	; 0
+  7a:	88 e0       	ldi	r24, 0x08	; 8
+  7c:	01 90       	ld	r0, Z+
+  7e:	0d 92       	st	X+, r0
+  80:	81 50       	subi	r24, 0x01	; 1
+  82:	e1 f7       	brne	.-8      	; 0x7c <main+0x32>
+      0b11111000,
+      0b11000000,
+      0b11111111,
+      0b11111111
+    }
+  };
+  84:	de 01       	movw	r26, r28
+  86:	19 96       	adiw	r26, 0x09	; 9
+  88:	e0 e6       	ldi	r30, 0x60	; 96
+  8a:	f0 e0       	ldi	r31, 0x00	; 0
+  8c:	80 e1       	ldi	r24, 0x10	; 16
+  8e:	01 90       	ld	r0, Z+
+  90:	0d 92       	st	X+, r0
+  92:	81 50       	subi	r24, 0x01	; 1
+  94:	e1 f7       	brne	.-8      	; 0x8e <main+0x44>
+  96:	60 e0       	ldi	r22, 0x00	; 0
+  98:	70 e0       	ldi	r23, 0x00	; 0
+  9a:	40 e0       	ldi	r20, 0x00	; 0
+  9c:	50 e0       	ldi	r21, 0x00	; 0
+  while (1) {
+
+for (int c=0; c < 8;c++)
+{
+	for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+  9e:	5e 01       	movw	r10, r28
+  a0:	08 94       	sec
+  a2:	a1 1c       	adc	r10, r1
+  a4:	b1 1c       	adc	r11, r1
+  a6:	8e 01       	movw	r16, r28
+  a8:	07 5f       	subi	r16, 0xF7	; 247
+  aa:	1f 4f       	sbci	r17, 0xFF	; 255
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  ac:	84 ef       	ldi	r24, 0xF4	; 244
+  ae:	c8 2e       	mov	r12, r24
+  b0:	81 e0       	ldi	r24, 0x01	; 1
+  b2:	d8 2e       	mov	r13, r24
+  b4:	1e c0       	rjmp	.+60     	; 0xf2 <main+0xa8>
+          for (int j = 0; j < 8; j++) {
+            PORTA = PORT[j]; // FILA
+  b6:	81 91       	ld	r24, Z+
+  b8:	8b bb       	out	0x1b, r24	; 27
+            simbolo = LETRAS[m][j];
+  ba:	8d 91       	ld	r24, X+
+  bc:	9d 91       	ld	r25, X+
+            simbolo = simbolo >> d; //d es numero de desplazamientos
+            PORTC = ~simbolo; //COLUMNAS,
+  be:	06 2e       	mov	r0, r22
+  c0:	02 c0       	rjmp	.+4      	; 0xc6 <main+0x7c>
+  c2:	95 95       	asr	r25
+  c4:	87 95       	ror	r24
+  c6:	0a 94       	dec	r0
+  c8:	e2 f7       	brpl	.-8      	; 0xc2 <main+0x78>
+  ca:	80 95       	com	r24
+  cc:	85 bb       	out	0x15, r24	; 21
+  ce:	c6 01       	movw	r24, r12
+  d0:	01 97       	sbiw	r24, 0x01	; 1
+  d2:	f1 f7       	brne	.-4      	; 0xd0 <main+0x86>
+
+for (int c=0; c < 8;c++)
+{
+	for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+          for (int j = 0; j < 8; j++) {
+  d4:	e0 17       	cp	r30, r16
+  d6:	f1 07       	cpc	r31, r17
+  d8:	71 f7       	brne	.-36     	; 0xb6 <main+0x6c>
+  while (1) {
+
+for (int c=0; c < 8;c++)
+{
+	for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+  da:	2f 5f       	subi	r18, 0xFF	; 255
+  dc:	3f 4f       	sbci	r19, 0xFF	; 255
+  de:	28 32       	cpi	r18, 0x28	; 40
+  e0:	31 05       	cpc	r19, r1
+  e2:	19 f0       	breq	.+6      	; 0xea <main+0xa0>
+  e4:	f5 01       	movw	r30, r10
+  e6:	d8 01       	movw	r26, r16
+  e8:	e6 cf       	rjmp	.-52     	; 0xb6 <main+0x6c>
+
+          }
+        }
+      }
+
+      d++;
+  ea:	6f 5f       	subi	r22, 0xFF	; 255
+  ec:	7f 4f       	sbci	r23, 0xFF	; 255
+  int simbolo;
+  int d = 0; //numero de desplazamientos del simbolo
+
+  while (1) {
+
+for (int c=0; c < 8;c++)
+  ee:	4f 5f       	subi	r20, 0xFF	; 255
+  f0:	5f 4f       	sbci	r21, 0xFF	; 255
+  f2:	48 30       	cpi	r20, 0x08	; 8
+  f4:	51 05       	cpc	r21, r1
+  f6:	3c f5       	brge	.+78     	; 0x146 <main+0xfc>
+  f8:	20 e0       	ldi	r18, 0x00	; 0
+  fa:	30 e0       	ldi	r19, 0x00	; 0
+  fc:	f3 cf       	rjmp	.-26     	; 0xe4 <main+0x9a>
+{
+
+		for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+          for (int j = 0; j < 8; j++) {
+            PORTA = PORT[j]; // FILA
+  fe:	81 91       	ld	r24, Z+
+ 100:	8b bb       	out	0x1b, r24	; 27
+            simbolo = LETRAS[m][j];
+ 102:	8d 91       	ld	r24, X+
+ 104:	9d 91       	ld	r25, X+
+            simbolo = simbolo << d; //d es numero de desplazamientos
+            PORTC = ~simbolo; //COLUMNAS,
+ 106:	0f 2c       	mov	r0, r15
+ 108:	02 c0       	rjmp	.+4      	; 0x10e <main+0xc4>
+ 10a:	88 0f       	add	r24, r24
+ 10c:	99 1f       	adc	r25, r25
+ 10e:	0a 94       	dec	r0
+ 110:	e2 f7       	brpl	.-8      	; 0x10a <main+0xc0>
+ 112:	80 95       	com	r24
+ 114:	85 bb       	out	0x15, r24	; 21
+ 116:	c6 01       	movw	r24, r12
+ 118:	01 97       	sbiw	r24, 0x01	; 1
+ 11a:	f1 f7       	brne	.-4      	; 0x118 <main+0xce>
+for (int c=0; c < 8;c++)
+{
+
+		for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+          for (int j = 0; j < 8; j++) {
+ 11c:	e0 17       	cp	r30, r16
+ 11e:	f1 07       	cpc	r31, r17
+ 120:	71 f7       	brne	.-36     	; 0xfe <main+0xb4>
+
+for (int c=0; c < 8;c++)
+{
+
+		for (int m = 0; m < DIG; m++) {
+        for (int n = 0; n < 40; n++) {
+ 122:	2f 5f       	subi	r18, 0xFF	; 255
+ 124:	3f 4f       	sbci	r19, 0xFF	; 255
+ 126:	28 32       	cpi	r18, 0x28	; 40
+ 128:	31 05       	cpc	r19, r1
+ 12a:	19 f0       	breq	.+6      	; 0x132 <main+0xe8>
+ 12c:	f5 01       	movw	r30, r10
+ 12e:	d8 01       	movw	r26, r16
+ 130:	e6 cf       	rjmp	.-52     	; 0xfe <main+0xb4>
+      }
+
+      d++;
+ } 
+
+for (int c=0; c < 8;c++)
+ 132:	4f 5f       	subi	r20, 0xFF	; 255
+ 134:	5f 4f       	sbci	r21, 0xFF	; 255
+ 136:	48 30       	cpi	r20, 0x08	; 8
+ 138:	51 05       	cpc	r21, r1
+ 13a:	39 f4       	brne	.+14     	; 0x14a <main+0x100>
+ 13c:	68 50       	subi	r22, 0x08	; 8
+ 13e:	70 40       	sbci	r23, 0x00	; 0
+ 140:	40 e0       	ldi	r20, 0x00	; 0
+ 142:	50 e0       	ldi	r21, 0x00	; 0
+ 144:	d6 cf       	rjmp	.-84     	; 0xf2 <main+0xa8>
+ 146:	40 e0       	ldi	r20, 0x00	; 0
+ 148:	50 e0       	ldi	r21, 0x00	; 0
+#define F_CPU 4000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+#define DIG 1
+
+int main(void) {
+ 14a:	f6 2e       	mov	r15, r22
+ 14c:	f4 1a       	sub	r15, r20
+ 14e:	20 e0       	ldi	r18, 0x00	; 0
+ 150:	30 e0       	ldi	r19, 0x00	; 0
+ 152:	ec cf       	rjmp	.-40     	; 0x12c <main+0xe2>
+
+00000154 <_exit>:
+ 154:	f8 94       	cli
+
+00000156 <__stop_program>:
+ 156:	ff cf       	rjmp	.-2      	; 0x156 <__stop_program>

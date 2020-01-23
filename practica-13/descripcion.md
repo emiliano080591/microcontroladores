@@ -1,0 +1,1 @@
+Que muestre cualquier cosa en la LCD con el teclado

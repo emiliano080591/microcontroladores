@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega8535</DEVICE>
+ <WORKING_DIR>C:\OHM\workspace\microcontroladores\practica-6\source-code</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8535def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\sumador.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>12</LINE></reset>
+  <main><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>16</LINE></main>
+  <aumen><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>54</LINE></aumen>
+  <decre><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>59</LINE></decre>
+  <load><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>32</LINE></load>
+  <loop><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>44</LINE></loop>
+  <a_dece><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>64</LINE></a_dece>
+  <d_dece><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>70</LINE></d_dece>
+  <restart><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>76</LINE></restart>
+  <maxi><FILE>C:\OHM\workspace\microcontroladores\practica-6\source-code\practica.asm</FILE><LINE>80</LINE></maxi>
+ </LABELS>
+</ASSEMBLER_INFO>

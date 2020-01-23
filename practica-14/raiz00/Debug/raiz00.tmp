@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega8535"</DEVICE>
+ <WORKING_DIR>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m8535def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\Debug\raiz00.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>raiz00.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>raiz00.map</FILE>
+  <FILE>raiz00.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <leer><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>85</LINE></leer>
+  <suma1><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>99</LINE></suma1>
+  <suma2><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>114</LINE></suma2>
+  <imprime><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>124</LINE></imprime>
+  <imprime2><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>155</LINE></imprime2>
+  <cero><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>185</LINE></cero>
+  <uno><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>194</LINE></uno>
+  <dos><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>202</LINE></dos>
+  <tres><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>210</LINE></tres>
+  <cuatro><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>218</LINE></cuatro>
+  <cinco><FILE>C:\Users\Yair\Desktop\Micros\AVR\raiz00\raiz00\main.asm</FILE><LINE>226</LINE></cinco>
+ </LABELS>
+</ASSEMBLER_INFO>

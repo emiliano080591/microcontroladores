@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>AT90S8535</DEVICE>
+ <WORKING_DIR>C:\OHM\workspace\microcontroladores\practica-5\source-code</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\8535def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\sumador.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\sumador.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\sumador.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <chkr><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>21</LINE></chkr>
+  <cero><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>32</LINE></cero>
+  <cys><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>42</LINE></cys>
+  <nta><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>53</LINE></nta>
+  <delayms><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>64</LINE></delayms>
+  <loop0><FILE>C:\OHM\workspace\microcontroladores\practica-5\source-code\practica.asm</FILE><LINE>70</LINE></loop0>
+ </LABELS>
+</ASSEMBLER_INFO>

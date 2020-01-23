@@ -1,0 +1,1 @@
+Mostrar el voltaje de un arreglo de resitencias mediante el uso de el ADC en un display de 7 segmentos.

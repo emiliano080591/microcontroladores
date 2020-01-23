@@ -1,0 +1,503 @@
+
+practica.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001d4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  000001d4  00000268  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000007  00800070  00800070  00000278  2**0
+                  ALLOC
+  3 .debug_aranges 00000020  00000000  00000000  00000278  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 0000007c  00000000  00000000  00000298  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000252  00000000  00000000  00000314  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000108  00000000  00000000  00000566  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000389  00000000  00000000  0000066e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000020  00000000  00000000  000009f8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000117  00000000  00000000  00000a18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000070  00000000  00000000  00000b2f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  00000b9f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	14 c0       	rjmp	.+40     	; 0x2a <__ctors_end>
+   2:	2e c0       	rjmp	.+92     	; 0x60 <__bad_interrupt>
+   4:	2d c0       	rjmp	.+90     	; 0x60 <__bad_interrupt>
+   6:	2c c0       	rjmp	.+88     	; 0x60 <__bad_interrupt>
+   8:	2b c0       	rjmp	.+86     	; 0x60 <__bad_interrupt>
+   a:	2a c0       	rjmp	.+84     	; 0x60 <__bad_interrupt>
+   c:	29 c0       	rjmp	.+82     	; 0x60 <__bad_interrupt>
+   e:	28 c0       	rjmp	.+80     	; 0x60 <__bad_interrupt>
+  10:	27 c0       	rjmp	.+78     	; 0x60 <__bad_interrupt>
+  12:	26 c0       	rjmp	.+76     	; 0x60 <__bad_interrupt>
+  14:	25 c0       	rjmp	.+74     	; 0x60 <__bad_interrupt>
+  16:	24 c0       	rjmp	.+72     	; 0x60 <__bad_interrupt>
+  18:	23 c0       	rjmp	.+70     	; 0x60 <__bad_interrupt>
+  1a:	22 c0       	rjmp	.+68     	; 0x60 <__bad_interrupt>
+  1c:	21 c0       	rjmp	.+66     	; 0x60 <__bad_interrupt>
+  1e:	20 c0       	rjmp	.+64     	; 0x60 <__bad_interrupt>
+  20:	1f c0       	rjmp	.+62     	; 0x60 <__bad_interrupt>
+  22:	1e c0       	rjmp	.+60     	; 0x60 <__bad_interrupt>
+  24:	1d c0       	rjmp	.+58     	; 0x60 <__bad_interrupt>
+  26:	1c c0       	rjmp	.+56     	; 0x60 <__bad_interrupt>
+  28:	1b c0       	rjmp	.+54     	; 0x60 <__bad_interrupt>
+
+0000002a <__ctors_end>:
+  2a:	11 24       	eor	r1, r1
+  2c:	1f be       	out	0x3f, r1	; 63
+  2e:	cf e5       	ldi	r28, 0x5F	; 95
+  30:	d2 e0       	ldi	r29, 0x02	; 2
+  32:	de bf       	out	0x3e, r29	; 62
+  34:	cd bf       	out	0x3d, r28	; 61
+
+00000036 <__do_copy_data>:
+  36:	10 e0       	ldi	r17, 0x00	; 0
+  38:	a0 e6       	ldi	r26, 0x60	; 96
+  3a:	b0 e0       	ldi	r27, 0x00	; 0
+  3c:	e4 ed       	ldi	r30, 0xD4	; 212
+  3e:	f1 e0       	ldi	r31, 0x01	; 1
+  40:	02 c0       	rjmp	.+4      	; 0x46 <.do_copy_data_start>
+
+00000042 <.do_copy_data_loop>:
+  42:	05 90       	lpm	r0, Z+
+  44:	0d 92       	st	X+, r0
+
+00000046 <.do_copy_data_start>:
+  46:	a0 37       	cpi	r26, 0x70	; 112
+  48:	b1 07       	cpc	r27, r17
+  4a:	d9 f7       	brne	.-10     	; 0x42 <.do_copy_data_loop>
+
+0000004c <__do_clear_bss>:
+  4c:	10 e0       	ldi	r17, 0x00	; 0
+  4e:	a0 e7       	ldi	r26, 0x70	; 112
+  50:	b0 e0       	ldi	r27, 0x00	; 0
+  52:	01 c0       	rjmp	.+2      	; 0x56 <.do_clear_bss_start>
+
+00000054 <.do_clear_bss_loop>:
+  54:	1d 92       	st	X+, r1
+
+00000056 <.do_clear_bss_start>:
+  56:	a7 37       	cpi	r26, 0x77	; 119
+  58:	b1 07       	cpc	r27, r17
+  5a:	e1 f7       	brne	.-8      	; 0x54 <.do_clear_bss_loop>
+  5c:	02 d0       	rcall	.+4      	; 0x62 <main>
+  5e:	b8 c0       	rjmp	.+368    	; 0x1d0 <_exit>
+
+00000060 <__bad_interrupt>:
+  60:	cf cf       	rjmp	.-98     	; 0x0 <__vectors>
+
+00000062 <main>:
+unsigned char tecla=0,lectura=0, tecla_anterior=0;
+const char tabla7segmentos [16]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7C,0x39,0x5E,0x79,0x71};
+unsigned char aux1=0,aux2=0,aux3=0,aux4=0;
+
+int main(void)
+{
+  62:	cf 92       	push	r12
+  64:	df 92       	push	r13
+  66:	ef 92       	push	r14
+  68:	ff 92       	push	r15
+  6a:	0f 93       	push	r16
+  6c:	1f 93       	push	r17
+// Declare your local variables here
+
+// Input/Output Ports initialization
+// Port A initialization
+// Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRA=(1<<DDA7) | (1<<DDA6) | (1<<DDA5) | (1<<DDA4) | (1<<DDA3) | (1<<DDA2) | (1<<DDA1) | (1<<DDA0);
+  6e:	8f ef       	ldi	r24, 0xFF	; 255
+  70:	8a bb       	out	0x1a, r24	; 26
+// State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTA=(0<<PORTA7) | (0<<PORTA6) | (0<<PORTA5) | (0<<PORTA4) | (0<<PORTA3) | (0<<PORTA2) | (0<<PORTA1) | (0<<PORTA0);
+  72:	1b ba       	out	0x1b, r1	; 27
+
+// Port B initialization
+// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
+DDRB=(1<<DDB7) | (1<<DDB6) | (1<<DDB5) | (1<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+  74:	87 bb       	out	0x17, r24	; 23
+// State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
+PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+  76:	18 ba       	out	0x18, r1	; 24
+
+// Port C initialization
+// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRC=(0<<DDC7) | (0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+  78:	8f e0       	ldi	r24, 0x0F	; 15
+  7a:	84 bb       	out	0x14, r24	; 20
+// State: Bit7=P Bit6=P Bit5=P Bit4=P Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTC=(1<<PORTC7) | (1<<PORTC6) | (1<<PORTC5) | (1<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+  7c:	80 ef       	ldi	r24, 0xF0	; 240
+  7e:	85 bb       	out	0x15, r24	; 21
+
+// Port D initialization
+// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
+DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (0<<DDD1) | (0<<DDD0);
+  80:	11 ba       	out	0x11, r1	; 17
+// State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
+PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+  82:	12 ba       	out	0x12, r1	; 18
+// Timer/Counter 0 initialization
+// Clock source: System Clock
+// Clock value: Timer 0 Stopped
+// Mode: Normal top=0xFF
+// OC0 output: Disconnected
+TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
+  84:	13 be       	out	0x33, r1	; 51
+TCNT0=0x00;
+  86:	12 be       	out	0x32, r1	; 50
+OCR0=0x00;
+  88:	1c be       	out	0x3c, r1	; 60
+// Input Capture on Falling Edge
+// Timer1 Overflow Interrupt: Off
+// Input Capture Interrupt: Off
+// Compare A Match Interrupt: Off
+// Compare B Match Interrupt: Off
+TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+  8a:	1f bc       	out	0x2f, r1	; 47
+TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+  8c:	1e bc       	out	0x2e, r1	; 46
+TCNT1H=0x00;
+  8e:	1d bc       	out	0x2d, r1	; 45
+TCNT1L=0x00;
+  90:	1c bc       	out	0x2c, r1	; 44
+ICR1H=0x00;
+  92:	17 bc       	out	0x27, r1	; 39
+ICR1L=0x00;
+  94:	16 bc       	out	0x26, r1	; 38
+OCR1AH=0x00;
+  96:	1b bc       	out	0x2b, r1	; 43
+OCR1AL=0x00;
+  98:	1a bc       	out	0x2a, r1	; 42
+OCR1BH=0x00;
+  9a:	19 bc       	out	0x29, r1	; 41
+OCR1BL=0x00;
+  9c:	18 bc       	out	0x28, r1	; 40
+// Timer/Counter 2 initialization
+// Clock source: System Clock
+// Clock value: Timer2 Stopped
+// Mode: Normal top=0xFF
+// OC2 output: Disconnected
+ASSR=0<<AS2;
+  9e:	12 bc       	out	0x22, r1	; 34
+TCCR2=(0<<WGM20) | (0<<COM21) | (0<<COM20) | (0<<WGM21) | (0<<CS22) | (0<<CS21) | (0<<CS20);
+  a0:	15 bc       	out	0x25, r1	; 37
+TCNT2=0x00;
+  a2:	14 bc       	out	0x24, r1	; 36
+OCR2=0x00;
+  a4:	13 bc       	out	0x23, r1	; 35
+
+// Timer(s)/Counter(s) Interrupt(s) initialization
+TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
+  a6:	19 be       	out	0x39, r1	; 57
+
+// External Interrupt(s) initialization
+// INT0: Off
+// INT1: Off
+// INT2: Off
+MCUCR=(0<<ISC11) | (0<<ISC10) | (0<<ISC01) | (0<<ISC00);
+  a8:	15 be       	out	0x35, r1	; 53
+MCUCSR=(0<<ISC2);
+  aa:	14 be       	out	0x34, r1	; 52
+
+// USART initialization
+// USART disabled
+UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (0<<RXEN) | (0<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+  ac:	1a b8       	out	0x0a, r1	; 10
+// Analog Comparator: Off
+// The Analog Comparator's positive input is
+// connected to the AIN0 pin
+// The Analog Comparator's negative input is
+// connected to the AIN1 pin
+ACSR=(1<<ACD) | (0<<ACBG) | (0<<ACO) | (0<<ACI) | (0<<ACIE) | (0<<ACIC) | (0<<ACIS1) | (0<<ACIS0);
+  ae:	80 e8       	ldi	r24, 0x80	; 128
+  b0:	88 b9       	out	0x08, r24	; 8
+SFIOR=(0<<ACME);
+  b2:	10 be       	out	0x30, r1	; 48
+
+// ADC initialization
+// ADC disabled
+ADCSRA=(0<<ADEN) | (0<<ADSC) | (0<<ADATE) | (0<<ADIF) | (0<<ADIE) | (0<<ADPS2) | (0<<ADPS1) | (0<<ADPS0);
+  b4:	16 b8       	out	0x06, r1	; 6
+
+// SPI initialization
+// SPI disabled
+SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<SPR1) | (0<<SPR0);
+  b6:	1d b8       	out	0x0d, r1	; 13
+
+// TWI initialization
+// TWI disabled
+TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
+  b8:	16 be       	out	0x36, r1	; 54
+  ba:	20 91 70 00 	lds	r18, 0x0070
+  be:	90 91 76 00 	lds	r25, 0x0076
+  c2:	50 91 75 00 	lds	r21, 0x0075
+  c6:	40 91 74 00 	lds	r20, 0x0074
+  ca:	30 91 73 00 	lds	r19, 0x0073
+
+while (1)
+    {	//Se prueba la primera columna se envía 0110    
+		PORTC=0b11110111;        
+  ce:	e7 ef       	ldi	r30, 0xF7	; 247
+  d0:	ce 2e       	mov	r12, r30
+            tecla=12;
+        if (lectura==0b01110000)
+            tecla=13;        
+
+        //se prueba segunda columna se envía 1111
+        PORTC=0b11111011;
+  d2:	7b ef       	ldi	r23, 0xFB	; 251
+  d4:	d7 2e       	mov	r13, r23
+            tecla=3;
+        if (lectura==0b01110000)
+            tecla=14; 
+			 
+        //se prueba tercera columna se envía 0011
+        PORTC=0b11111101;
+  d6:	6d ef       	ldi	r22, 0xFD	; 253
+  d8:	e6 2e       	mov	r14, r22
+        lectura=PINC&0b11110000;
+        if (lectura==0b11100000)
+            tecla=8;
+        if (lectura==0b11010000)
+            tecla=5;
+        if (lectura==0b10110000)
+  da:	02 e0       	ldi	r16, 0x02	; 2
+            tecla=14; 
+			 
+        //se prueba tercera columna se envía 0011
+        PORTC=0b11111101;
+        lectura=PINC&0b11110000;
+        if (lectura==0b11100000)
+  dc:	88 e0       	ldi	r24, 0x08	; 8
+  de:	f8 2e       	mov	r15, r24
+            tecla=2;
+        if (lectura==0b01110000)
+            tecla=0;     
+			  
+        //se prueba cuarta columna se envía 1001
+        PORTC=0b11111110;
+  e0:	1e ef       	ldi	r17, 0xFE	; 254
+        lectura=PINC&0b11110000;
+        if (lectura==0b11100000)
+            tecla=7; //0
+         if (lectura==0b11010000)
+            tecla=4;
+        if (lectura==0b10110000)
+  e2:	b1 e0       	ldi	r27, 0x01	; 1
+        //se prueba cuarta columna se envía 1001
+        PORTC=0b11111110;
+        lectura=PINC&0b11110000;
+        if (lectura==0b11100000)
+            tecla=7; //0
+         if (lectura==0b11010000)
+  e4:	a4 e0       	ldi	r26, 0x04	; 4
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  e6:	60 ed       	ldi	r22, 0xD0	; 208
+  e8:	77 e0       	ldi	r23, 0x07	; 7
+// TWI disabled
+TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
+
+while (1)
+    {	//Se prueba la primera columna se envía 0110    
+		PORTC=0b11110111;        
+  ea:	c5 ba       	out	0x15, r12	; 21
+        lectura=PINC&0b11110000;
+  ec:	83 b3       	in	r24, 0x13	; 19
+  ee:	80 7f       	andi	r24, 0xF0	; 240
+        if (lectura==0b11100000)
+  f0:	80 3e       	cpi	r24, 0xE0	; 224
+  f2:	11 f4       	brne	.+4      	; 0xf8 <main+0x96>
+  f4:	2a e0       	ldi	r18, 0x0A	; 10
+  f6:	0b c0       	rjmp	.+22     	; 0x10e <main+0xac>
+            tecla=10;
+        if (lectura==0b11010000)
+  f8:	80 3d       	cpi	r24, 0xD0	; 208
+  fa:	11 f4       	brne	.+4      	; 0x100 <main+0x9e>
+  fc:	2b e0       	ldi	r18, 0x0B	; 11
+  fe:	07 c0       	rjmp	.+14     	; 0x10e <main+0xac>
+            tecla=11;
+        if (lectura==0b10110000)
+ 100:	80 3b       	cpi	r24, 0xB0	; 176
+ 102:	11 f4       	brne	.+4      	; 0x108 <main+0xa6>
+ 104:	2c e0       	ldi	r18, 0x0C	; 12
+ 106:	03 c0       	rjmp	.+6      	; 0x10e <main+0xac>
+            tecla=12;
+        if (lectura==0b01110000)
+ 108:	80 37       	cpi	r24, 0x70	; 112
+ 10a:	09 f4       	brne	.+2      	; 0x10e <main+0xac>
+ 10c:	2d e0       	ldi	r18, 0x0D	; 13
+            tecla=13;        
+
+        //se prueba segunda columna se envía 1111
+        PORTC=0b11111011;
+ 10e:	d5 ba       	out	0x15, r13	; 21
+        lectura=PINC&0b11110000;
+ 110:	83 b3       	in	r24, 0x13	; 19
+ 112:	80 7f       	andi	r24, 0xF0	; 240
+        if (lectura==0b11100000)
+ 114:	80 3e       	cpi	r24, 0xE0	; 224
+ 116:	11 f4       	brne	.+4      	; 0x11c <main+0xba>
+ 118:	29 e0       	ldi	r18, 0x09	; 9
+ 11a:	0b c0       	rjmp	.+22     	; 0x132 <main+0xd0>
+            tecla=9;
+        if (lectura==0b11010000)
+ 11c:	80 3d       	cpi	r24, 0xD0	; 208
+ 11e:	11 f4       	brne	.+4      	; 0x124 <main+0xc2>
+ 120:	26 e0       	ldi	r18, 0x06	; 6
+ 122:	07 c0       	rjmp	.+14     	; 0x132 <main+0xd0>
+            tecla=6;
+        if (lectura==0b10110000)
+ 124:	80 3b       	cpi	r24, 0xB0	; 176
+ 126:	11 f4       	brne	.+4      	; 0x12c <main+0xca>
+ 128:	23 e0       	ldi	r18, 0x03	; 3
+ 12a:	03 c0       	rjmp	.+6      	; 0x132 <main+0xd0>
+            tecla=3;
+        if (lectura==0b01110000)
+ 12c:	80 37       	cpi	r24, 0x70	; 112
+ 12e:	09 f4       	brne	.+2      	; 0x132 <main+0xd0>
+ 130:	2e e0       	ldi	r18, 0x0E	; 14
+            tecla=14; 
+			 
+        //se prueba tercera columna se envía 0011
+        PORTC=0b11111101;
+ 132:	e5 ba       	out	0x15, r14	; 21
+        lectura=PINC&0b11110000;
+ 134:	83 b3       	in	r24, 0x13	; 19
+ 136:	80 7f       	andi	r24, 0xF0	; 240
+        if (lectura==0b11100000)
+ 138:	80 3e       	cpi	r24, 0xE0	; 224
+ 13a:	11 f4       	brne	.+4      	; 0x140 <main+0xde>
+ 13c:	28 e0       	ldi	r18, 0x08	; 8
+ 13e:	0b c0       	rjmp	.+22     	; 0x156 <main+0xf4>
+            tecla=8;
+        if (lectura==0b11010000)
+ 140:	80 3d       	cpi	r24, 0xD0	; 208
+ 142:	11 f4       	brne	.+4      	; 0x148 <main+0xe6>
+ 144:	25 e0       	ldi	r18, 0x05	; 5
+ 146:	07 c0       	rjmp	.+14     	; 0x156 <main+0xf4>
+            tecla=5;
+        if (lectura==0b10110000)
+ 148:	80 3b       	cpi	r24, 0xB0	; 176
+ 14a:	11 f4       	brne	.+4      	; 0x150 <main+0xee>
+ 14c:	22 e0       	ldi	r18, 0x02	; 2
+ 14e:	03 c0       	rjmp	.+6      	; 0x156 <main+0xf4>
+            tecla=2;
+        if (lectura==0b01110000)
+ 150:	80 37       	cpi	r24, 0x70	; 112
+ 152:	09 f4       	brne	.+2      	; 0x156 <main+0xf4>
+ 154:	20 e0       	ldi	r18, 0x00	; 0
+            tecla=0;     
+			  
+        //se prueba cuarta columna se envía 1001
+        PORTC=0b11111110;
+ 156:	15 bb       	out	0x15, r17	; 21
+        lectura=PINC&0b11110000;
+ 158:	83 b3       	in	r24, 0x13	; 19
+ 15a:	80 7f       	andi	r24, 0xF0	; 240
+        if (lectura==0b11100000)
+ 15c:	80 3e       	cpi	r24, 0xE0	; 224
+ 15e:	11 f4       	brne	.+4      	; 0x164 <main+0x102>
+ 160:	27 e0       	ldi	r18, 0x07	; 7
+ 162:	0b c0       	rjmp	.+22     	; 0x17a <main+0x118>
+            tecla=7; //0
+         if (lectura==0b11010000)
+ 164:	80 3d       	cpi	r24, 0xD0	; 208
+ 166:	11 f4       	brne	.+4      	; 0x16c <main+0x10a>
+ 168:	24 e0       	ldi	r18, 0x04	; 4
+ 16a:	07 c0       	rjmp	.+14     	; 0x17a <main+0x118>
+            tecla=4;
+        if (lectura==0b10110000)
+ 16c:	80 3b       	cpi	r24, 0xB0	; 176
+ 16e:	11 f4       	brne	.+4      	; 0x174 <main+0x112>
+ 170:	21 e0       	ldi	r18, 0x01	; 1
+ 172:	03 c0       	rjmp	.+6      	; 0x17a <main+0x118>
+            tecla=1;
+        if (lectura==0b01110000)
+ 174:	80 37       	cpi	r24, 0x70	; 112
+ 176:	09 f4       	brne	.+2      	; 0x17a <main+0x118>
+ 178:	2f e0       	ldi	r18, 0x0F	; 15
+            tecla=15;      
+			
+        
+        if(tabla7segmentos[tecla]!=aux1){
+ 17a:	e2 2f       	mov	r30, r18
+ 17c:	f0 e0       	ldi	r31, 0x00	; 0
+ 17e:	e0 5a       	subi	r30, 0xA0	; 160
+ 180:	ff 4f       	sbci	r31, 0xFF	; 255
+ 182:	e0 81       	ld	r30, Z
+ 184:	e3 17       	cp	r30, r19
+ 186:	19 f4       	brne	.+6      	; 0x18e <main+0x12c>
+ 188:	34 2f       	mov	r19, r20
+ 18a:	45 2f       	mov	r20, r21
+ 18c:	59 2f       	mov	r21, r25
+        aux2=aux1;                   
+        }
+
+		
+		aux1=tabla7segmentos [tecla];
+        PORTB=0x01;
+ 18e:	b8 bb       	out	0x18, r27	; 24
+        PORTA=~aux1;
+ 190:	8e 2f       	mov	r24, r30
+ 192:	80 95       	com	r24
+ 194:	8b bb       	out	0x1b, r24	; 27
+ 196:	cb 01       	movw	r24, r22
+ 198:	01 97       	sbiw	r24, 0x01	; 1
+ 19a:	f1 f7       	brne	.-4      	; 0x198 <main+0x136>
+        _delay_ms(2);
+        PORTB=0x02;
+ 19c:	08 bb       	out	0x18, r16	; 24
+        PORTA=~aux2;
+ 19e:	83 2f       	mov	r24, r19
+ 1a0:	80 95       	com	r24
+ 1a2:	8b bb       	out	0x1b, r24	; 27
+ 1a4:	cb 01       	movw	r24, r22
+ 1a6:	01 97       	sbiw	r24, 0x01	; 1
+ 1a8:	f1 f7       	brne	.-4      	; 0x1a6 <main+0x144>
+        _delay_ms(2);
+        PORTB=0x04;
+ 1aa:	a8 bb       	out	0x18, r26	; 24
+        PORTA=~aux3;
+ 1ac:	84 2f       	mov	r24, r20
+ 1ae:	80 95       	com	r24
+ 1b0:	8b bb       	out	0x1b, r24	; 27
+ 1b2:	cb 01       	movw	r24, r22
+ 1b4:	01 97       	sbiw	r24, 0x01	; 1
+ 1b6:	f1 f7       	brne	.-4      	; 0x1b4 <main+0x152>
+        _delay_ms(2);
+        PORTB=0x08;
+ 1b8:	f8 ba       	out	0x18, r15	; 24
+        PORTA=~aux4;
+ 1ba:	85 2f       	mov	r24, r21
+ 1bc:	80 95       	com	r24
+ 1be:	8b bb       	out	0x1b, r24	; 27
+ 1c0:	cb 01       	movw	r24, r22
+ 1c2:	01 97       	sbiw	r24, 0x01	; 1
+ 1c4:	f1 f7       	brne	.-4      	; 0x1c2 <main+0x160>
+ 1c6:	95 2f       	mov	r25, r21
+ 1c8:	54 2f       	mov	r21, r20
+ 1ca:	43 2f       	mov	r20, r19
+ 1cc:	3e 2f       	mov	r19, r30
+ 1ce:	8d cf       	rjmp	.-230    	; 0xea <main+0x88>
+
+000001d0 <_exit>:
+ 1d0:	f8 94       	cli
+
+000001d2 <__stop_program>:
+ 1d2:	ff cf       	rjmp	.-2      	; 0x1d2 <__stop_program>

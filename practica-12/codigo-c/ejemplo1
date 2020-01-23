@@ -1,0 +1,46 @@
+
+#ifndef F_CPU
+#define F_CPU 4000000UL // Clock speed
+#endif
+#ifndef BAUD
+#define BAUD 9600
+#endif
+
+// Voltage Reference: AVCC pin
+#define ADC_VREF_TYPE ((0<<REFS1) | (1<<REFS0) | (0<<ADLAR))
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include <stdio.h>
+
+
+// Read the AD conversion result
+unsigned int read_adc(unsigned char adc_input)
+{
+ADMUX=adc_input | ADC_VREF_TYPE;
+// Delay needed for the stabilization of the ADC input voltage
+_delay_ms(10);
+// Start the AD conversion
+ADCSRA|=(1<<ADSC);
+// Wait for the AD conversion to complete
+while ((ADCSRA & (1<<ADIF))==0);
+ADCSRA|=(1<<ADIF);
+return ADCW;
+}
+
+int main(void) {
+  	DDRA = 0x00; //set PORTA as input 
+  	//PORTC and PORTD as output 
+  	DDRC = 0xFF;
+	
+	//printf("%d",read_adc(0));
+
+	while (1)
+  {   
+    printf("HOLA");     
+	//_delay_ms(1000);
+  }
+
+
+  return 0;
+}

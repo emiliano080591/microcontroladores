@@ -1,0 +1,1 @@
+La matriz de puntos led 8x8 debe mostrar un símbolo estático.

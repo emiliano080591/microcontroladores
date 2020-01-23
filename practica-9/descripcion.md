@@ -1,0 +1,1 @@
+En una matriz LED de 8x8 mostrar un símbolo con movimiento tipo marquesina.

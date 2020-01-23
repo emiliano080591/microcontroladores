@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "C:\Users\ohm\Desktop\microcontroladores\sumador\labels.tmp" -fI -W+ie -C V2E -o "C:\Users\ohm\Desktop\microcontroladores\sumador\sumador.hex" -d "C:\Users\ohm\Desktop\microcontroladores\sumador\sumador.obj" -e "C:\Users\ohm\Desktop\microcontroladores\sumador\sumador.eep" -m "C:\Users\ohm\Desktop\microcontroladores\sumador\sumador.map" "C:\Users\ohm\Desktop\microcontroladores\sumador\sumador.asm"

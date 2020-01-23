@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega8535</DEVICE>
+ <WORKING_DIR>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8535def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <main><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>30</LINE></main>
+  <deco><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>33</LINE></deco>
+  <contador><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>41</LINE></contador>
+  <tiempo><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>52</LINE></tiempo>
+  <WGLOOP0><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>54</LINE></WGLOOP0>
+  <WGLOOP1><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>56</LINE></WGLOOP1>
+  <WGLOOP2><FILE>C:\Users\jesus\Desktop\8voSemestre\Microcontroladores\micros\Practica 3 Contador\practica3.asm</FILE><LINE>58</LINE></WGLOOP2>
+ </LABELS>
+</ASSEMBLER_INFO>

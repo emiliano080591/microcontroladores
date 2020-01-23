@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Archivos de programa\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "C:\Documents and Settings\Laboratorio\Mis documentos\labels.tmp" -fI -W+ie -o "C:\Documents and Settings\Laboratorio\Mis documentos\tec.hex" -d "C:\Documents and Settings\Laboratorio\Mis documentos\tec.obj" -e "C:\Documents and Settings\Laboratorio\Mis documentos\tec.eep" -m "C:\Documents and Settings\Laboratorio\Mis documentos\tec.map" "C:\Documents and Settings\Laboratorio\Mis documentos\tec.asm"

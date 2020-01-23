@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "C:\OHM\workspace\microcontroladores\practica-3\practica-3\labels.tmp" -fI -W+ie -C V2E -o "C:\OHM\workspace\microcontroladores\practica-3\practica-3\practica-3.hex" -d "C:\OHM\workspace\microcontroladores\practica-3\practica-3\practica-3.obj" -e "C:\OHM\workspace\microcontroladores\practica-3\practica-3\practica-3.eep" -m "C:\OHM\workspace\microcontroladores\practica-3\practica-3\practica-3.map" "C:\OHM\workspace\microcontroladores\practica-3\practica-3\practica-3.asm"
